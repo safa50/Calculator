@@ -1,9 +1,9 @@
-name: Octane GitHub Actions Integration
+name: GitHub Actions-Octane Integration
 
 on:
   workflow_run:
-    workflows: [TestNG GitHub Actions Demo]
-    types: [requested, completed]
+    workflows: [CI - JUnit Calculator Test]
+    types: [completed]
   pull_request:
     types: [opened, edited, closed, reopened]
 
@@ -25,8 +25,8 @@ jobs:
           octaneClientId: ${{secrets.ALM_OCTANE_CLIENT_ID}}
           octaneClientSecret: ${{secrets.ALM_OCTANE_CLIENT_SECRET}}
           githubToken: ${{secrets.GITHUB_TOKEN}}
-          serverBaseUrl: https://github.com/safa50/TestNGAdderMaven
+          serverBaseUrl: https://github.com/safa50/Calculator
           pipelineNamePattern: '${workflow_name}'
-          testingFramework: testNG
+          testingFramework: junit
           unitTestResultsGlobPattern: "**/*.xml"
           #gherkinTestResultsGlobPattern: <pattern_for_gherkin_test_result_path>
